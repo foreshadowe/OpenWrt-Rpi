@@ -407,7 +407,11 @@ jobs:
           sudo -E apt-get -qq install zip unzip rsync
           sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
-
+      - name: Download Bin Archive
+        uses: actions/download-artifact@v2
+        with:
+          name: bin-archive
+          path: ${{ env.OPENWRT_ROOT_PATH }}
 
       - name: Decompress Bin Archive
         run: |
