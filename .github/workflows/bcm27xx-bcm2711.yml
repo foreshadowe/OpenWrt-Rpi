@@ -334,11 +334,17 @@ jobs:
             cd usign
             cmake .
             make
+            echo "make done"
             sudo mv usign /bin
+            echo "move done"
             mkdir -p $OPENWRT_ROOT_PATH/files/etc/opkg/keys
+            echo "make dir done"
             cd $OPENWRT_ROOT_PATH/files/etc/opkg/keys
+            echo "cd done"
             wget -q https://openwrt.cc/keys/key-build.pub
+            echo "wget done"
             mv key-build.pub $(usign -F -p key-build.pub)
+            echo "mv key done"
           fi
           cd $OPENWRT_ROOT_PATH
           echo "dtparam=i2c_arm=on,audio=on" >> target/linux/bcm27xx/image/config.txt
