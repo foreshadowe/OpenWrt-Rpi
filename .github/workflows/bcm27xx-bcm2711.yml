@@ -343,6 +343,7 @@ jobs:
             echo "cd done"
             wget -q https://openwrt.cc/keys/key-build.pub
             echo "wget done"
+            echo $(usign -F -p key-build.pub)
             mv key-build.pub $(usign -F -p key-build.pub)
             echo "mv key done"
           fi
